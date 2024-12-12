@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float number;
+    int divider;
+    divider = 2;  // Corrected to divide by 2 instead of 0
+
+    cout << "Hi there" << endl;
+    cout << "Please input a number and then hit return" << endl;
+    cin >> number;
+    
+    number = number / divider;  // Perform the division by 2
+    cout << "Half of your number is " << number << endl;
+
+    return 0;
+}
+
