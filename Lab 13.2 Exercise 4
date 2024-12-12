@@ -8,8 +8,7 @@ public:
     double findArea();
     double findCircumference();
     void printCircleStats();  // This outputs the radius and center of the circle.
-    Circles(float r, int x = 0, int y = 0);  // Constructor with default center values
-    Circles();  // Default constructor
+    Circles(float r = 1, int x = 0, int y = 0);  // Constructor with default values
     ~Circles();  // Destructor
 private:
     float radius;
@@ -21,37 +20,30 @@ const double PI = 3.14;
 
 int main()
 {
-    Circles sphere(8, 9, 10);  // Define with radius 8 and center (9, 10)
-    sphere.printCircleStats();
-    cout << "The area of the circle is " << sphere.findArea() << endl;
-    cout << "The circumference of the circle is " << sphere.findCircumference() << endl;
-
-    Circles sphere1(2);  // Only radius provided, center default (0, 0)
+    Circles sphere1;  // Default constructor, radius = 1, center = (0, 0)
     sphere1.printCircleStats();
     cout << "The area of the circle is " << sphere1.findArea() << endl;
     cout << "The circumference of the circle is " << sphere1.findCircumference() << endl;
 
-    Circles sphere2;  // Default constructor
+    Circles sphere2(5);  // Radius = 5, center = (0, 0)
     sphere2.printCircleStats();
     cout << "The area of the circle is " << sphere2.findArea() << endl;
     cout << "The circumference of the circle is " << sphere2.findCircumference() << endl;
 
-    Circles sphere3(1, 15, 16);  // Define with center (15, 16) and default radius
+    Circles sphere3(0, 10, 12);  // Center = (10, 12), radius = 1
     sphere3.printCircleStats();
     cout << "The area of the circle is " << sphere3.findArea() << endl;
     cout << "The circumference of the circle is " << sphere3.findCircumference() << endl;
+
+    Circles sphere4(7, 8, 9);  // Radius = 7, center = (8, 9)
+    sphere4.printCircleStats();
+    cout << "The area of the circle is " << sphere4.findArea() << endl;
+    cout << "The circumference of the circle is " << sphere4.findCircumference() << endl;
 
     return 0;
 }
 
 // Implementation section
-
-Circles::Circles()
-{
-    radius = 1;
-    center_x = 0;
-    center_y = 0;
-}
 
 Circles::Circles(float r, int x, int y)
 {
@@ -86,4 +78,3 @@ Circles::~Circles()
 {
     cout << "This concludes the Circles class." << endl;
 }
-
