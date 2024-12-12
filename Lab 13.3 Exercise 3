@@ -1,1 +1,69 @@
+// Execise 1 Below
+// The const keyword after a member function's declaration indicates that this function will not modify any member variables of the class. In the case of printList, it only reads from the class's member variables but does not modify them. This is why it is declared as const.
+// On the other hand, getList modifies the state of the object by reading from the file and populating the array values and updating the length. Therefore, it does not have const after its name.#include <iostream>
+
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+const int MAX_LENGTH = 50; // MAX_LENGTH contains the maximum length of our list
+
+class FloatList {
+public:
+    void getList(ifstream&); // Member function that gets data from a file
+    void printList() const; // Member function that prints data from that file to the screen.
+    void printAverage() const; // Member function to print the average temperature
+    FloatList(); // constructor that sets length to 0.
+    ~FloatList(); // destructor
+private:
+    int length; // Holds the number of elements in the array
+    float values[MAX_LENGTH]; // The array of values
+};
+
+int main() {
+    ifstream tempData; // Defines a data file
+    FloatList list; // Define an object called list of the class FloatList
+
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+
+    tempData.open("temperatures.txt"); // Open the file
+
+    // Call the getList function
+    list.getList(tempData);
+
+    // Call the printList function
+    list.printList();
+
+    // Call the printAverage function
+    list.printAverage();
+
+    return 0;
+}
+
+// Constructor that sets length to 0
+FloatList::FloatList() {
+    length = 0; // Initialize the length to 0
+}
+
+// getList function reads data from the file into the values array
+void FloatList::getList(ifstream& inputFile) {
+    while (inputFile >> values[length] && length < MAX_LENGTH) {
+        length++;
+    }
+}
+
+// printList function prints data from the values array
+void FloatList::printList() const {
+    for (int i = 0; i < length; i++) {
+        cout << values[i] << endl;
+    }
+}
+
+// printAverage function calculates and prints the average temperature
+void FloatList::printAverage() const {
+    if (length == 0) {
+        cout << "No data available." << endl;
+        return;
+ 
 
