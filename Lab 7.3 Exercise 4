@@ -1,1 +1,96 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+const int MAXROWS = 10;
+const int MAXCOLS = 10;
+typedef float PriceType[MAXROWS][MAXCOLS]; // creates a new data type of a 2D array of floats
+
+void getPrices(PriceType, int&, int&); // gets the prices into the array
+void printPrices(PriceType, int, int); // prints data as a table
+float findHighestPrice(PriceType, int, int); // finds the highest price
+float findLowestPrice(PriceType, int, int); // finds the lowest price
+
+int main()
+{
+    int rowsUsed;
+    int colsUsed;
+    PriceType priceTable;
+
+    getPrices(priceTable, rowsUsed, colsUsed); // Fill the array
+    printPrices(priceTable, rowsUsed, colsUsed); // Display the array
+
+    float highest = findHighestPrice(priceTable, rowsUsed, colsUsed);
+    cout << "The highest price is: $" << highest << endl;
+
+    float lowest = findLowestPrice(priceTable, rowsUsed, colsUsed);
+    cout << "The lowest price is: $" << lowest << endl;
+
+    return 0;
+}
+
+// Function to input prices into the array
+void getPrices(PriceType table, int& numOfRows, int& numOfCols)
+{
+    cout << "Please input the number of rows from 1 to " << MAXROWS << ": ";
+    cin >> numOfRows;
+    cout << "Please input the number of columns from 1 to " << MAXCOLS << ": ";
+    cin >> numOfCols;
+    for (int row = 0; row < numOfRows; row++)
+    {
+        for (int col = 0; col < numOfCols; col++)
+        {
+            cout << "Enter price for row " << row + 1 << ", column " << col + 1 << ": ";
+            cin >> table[row][col];
+        }
+    }
+}
+
+// Function to print prices as a table
+void printPrices(PriceType table, int numOfRows, int numOfCols)
+{
+    cout << fixed << showpoint << setprecision(2); // Ensure two decimal places
+    for (int row = 0; row < numOfRows; row++)
+    {
+        for (int col = 0; col < numOfCols; col++)
+        {
+            cout << setw(8) << table[row][col] << " "; // Format output with spacing
+        }
+        cout << endl; // Newline after each row
+    }
+}
+
+// Function to find the highest price
+float findHighestPrice(PriceType table, int numOfRows, int numOfCols)
+{
+    float highestPrice = table[0][0]; // Assume the first element is the highest
+    for (int row = 0; row < numOfRows; row++)
+    {
+        for (int col = 0; col < numOfCols; col++)
+        {
+            if (highestPrice < table[row][col])
+            {
+                highestPrice = table[row][col];
+            }
+        }
+    }
+    return highestPrice;
+}
+
+// Function to find the lowest price
+float findLowestPrice(PriceType table, int numOfRows, int numOfCols)
+{
+    float lowestPrice = table[0][0]; // Assume the first element is the lowest
+    for (int row = 0; row < numOfRows; row++)
+    {
+        for (int col = 0; col < numOfCols; col++)
+        {
+            if (lowestPrice > table[row][col])
+            {
+                lowestPrice = table[row][col];
+            }
+        }
+    }
+    return lowestPrice;
+}
 
