@@ -1,1 +1,22 @@
+#include <iostream>  // Needed for input/output
+#include <cmath>     // Needed for math functions like sqrt()
+using namespace std;
 
+int main()
+{
+    float a, b;   // The smaller two sides of the triangle
+    float hyp;    // The hypotenuse calculated by the program
+
+    // Sample run with fixed values (9 and 3)
+    a = 9;
+    b = 3;
+
+    // Fill in the assignment statement that determines the hypotenuse
+    hyp = sqrt((a * a) + (b * b));  // Using Pythagorean theorem to calculate the hypotenuse
+
+    cout << "Please input the values of the two sides: " << endl;
+    cout << "The sides of the right triangle are " << a << " and " << b << endl;
+    cout << "The hypotenuse is " << hyp << endl;
+
+    return 0;
+}
