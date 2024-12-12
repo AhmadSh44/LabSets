@@ -1,1 +1,49 @@
+def tally_age_groups():
+    # Create an empty list to hold the age groups
+    age_groups = [0] * 10  # 10 groups (1-10, 11-20, ..., 91-100)
+    
+    # Input: List of ages from the user
+    ages = input("Enter a list of ages separated by spaces (e.g., 12 25 34 45 61): ").split()
+    
+    # Convert input to integers
+    ages = [int(age) for age in ages]
+    
+    # Tally the number of people in each age group
+    for age in ages:
+        if 1 <= age <= 10:
+            age_groups[0] += 1
+        elif 11 <= age <= 20:
+            age_groups[1] += 1
+        elif 21 <= age <= 30:
+            age_groups[2] += 1
+        elif 31 <= age <= 40:
+            age_groups[3] += 1
+        elif 41 <= age <= 50:
+            age_groups[4] += 1
+        elif 51 <= age <= 60:
+            age_groups[5] += 1
+        elif 61 <= age <= 70:
+            age_groups[6] += 1
+        elif 71 <= age <= 80:
+            age_groups[7] += 1
+        elif 81 <= age <= 90:
+            age_groups[8] += 1
+        elif 91 <= age <= 100:
+            age_groups[9] += 1
+
+    # Display the results
+    print("\nAge Group Tally:")
+    print("1-10: ", age_groups[0])
+    print("11-20: ", age_groups[1])
+    print("21-30: ", age_groups[2])
+    print("31-40: ", age_groups[3])
+    print("41-50: ", age_groups[4])
+    print("51-60: ", age_groups[5])
+    print("61-70: ", age_groups[6])
+    print("71-80: ", age_groups[7])
+    print("81-90: ", age_groups[8])
+    print("91-100: ", age_groups[9])
+
+# Call the function to execute the program
+tally_age_groups()
 
