@@ -1,1 +1,64 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Function to calculate the average of scores
+double calculateAverage(int* scores, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += scores[i];
+    }
+    return static_cast<double>(sum) / size;
+}
+
+// Function to perform bubble sort on the array
+void bubbleSort(int* scores, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - 1 - i; j++) {
+            if (scores[j] > scores[j + 1]) {
+                // Swap the elements
+                int temp = scores[j];
+                scores[j] = scores[j + 1];
+                scores[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int size;
+
+    // Ask user for the size of the array
+    cout << "Enter the number of scores: ";
+    cin >> size;
+
+    // Dynamically allocate memory for the scores array
+    int* scores = new int[size];
+
+    // Read scores into the array
+    cout << "Enter the scores:" << endl;
+    for (int i = 0; i < size; i++) {
+        cin >> scores[i];
+    }
+
+    // Calculate and print the average of the scores
+    double average = calculateAverage(scores, size);
+    cout << fixed << setprecision(2);  // Set precision to 2 decimal places
+    cout << "The average score is: " << average << endl;
+
+    // Call the bubble sort function
+    bubbleSort(scores, size);
+
+    // Print the sorted scores
+    cout << "Scores in ascending order:" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << scores[i] << " ";
+    }
+    cout << endl;
+
+    // Deallocate the memory used for the dynamic array
+    delete[] scores;
+
+    return 0;
+}
 
