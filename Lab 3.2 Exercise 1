@@ -1,1 +1,27 @@
+#include <iostream>
+#include <iomanip>
 
+using namespace std;
+
+int main() {
+    double price1, quantity1, price2, quantity2;
+
+    // Input:
+    cout << "Please input the price and quantity of the first item: ";
+    cin >> price1 >> quantity1;
+
+    cout << "Please input the price and quantity of the second item: ";
+    cin >> price2 >> quantity2;
+
+    // Calculation:
+    double totalCost = (price1 * quantity1) + (price2 * quantity2);
+
+    // Output:
+    cout << fixed << setprecision(2); // Set decimal precision to 2 places
+    cout << setw(10) << "PRICE" << setw(10) << "QUANTITY" << endl;
+    cout << setw(10) << price1 << setw(10) << quantity1 << endl;
+    cout << setw(10) << price2 << setw(10) << quantity2 << endl;
+    cout << setw(10) << "TOTAL" << setw(10) << totalCost << endl;
+
+    return 0;
+}
