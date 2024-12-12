@@ -1,1 +1,109 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+const int MAXGRADE = 25;  // maximum number of grades per student
+const int MAXCHAR = 30;   // maximum characters used in a name
+
+typedef char StringType30[MAXCHAR + 1];  // character array data type for names
+typedef float GradeType[MAXGRADE];  // one-dimensional float array data type for grades
+
+// Function declarations
+float findGradeAvg(GradeType, int);  // finds grade average by taking array of grades and number of grades
+char findLetterGrade(float);  // finds letter grade from average
+
+int main()
+{
+    StringType30 firstname, lastname;  // two arrays of characters defined for names
+    int numOfGrades;  // holds the number of grades
+    GradeType grades;  // grades defined as a one-dimensional array
+    float average;  // holds the average of a student's grade
+    char moreInput;  // determines if there is more input
+
+    cout << setprecision(2) << fixed << showpoint;
+    
+    // Input the number of grades for each student
+    cout << "Please input the number of grades each student will receive." << endl
+         << "This must be a number between 1 and " << MAXGRADE << " inclusive" << endl;
+    cin >> numOfGrades;
+    
+    while (numOfGrades > MAXGRADE || numOfGrades < 1)
+    {
+        cout << "Please input the number of grades for each student." << endl
+             << "This must be a number between 1 and " << MAXGRADE << " inclusive\n";
+        cin >> numOfGrades;
+    }
+
+    // Input names and grades for each student
+    cout << "Please input a y if you want to input more students"
+         << " any other character will stop the input" << endl;
+    cin >> moreInput;
+    
+    while (moreInput == 'y' || moreInput == 'Y')
+    {
+        cout << "Please input the first name of the student" << endl;
+        cin >> firstname;
+        cout << endl << "Please input the last name of the student" << endl;
+        cin >> lastname;
+
+        for (int count = 0; count < numOfGrades; count++)
+        {
+            cout << endl << "Please input a grade" << endl;
+            cin >> grades[count];  // Input grade into array
+        }
+
+        // Get and print average of student
+        average = findGradeAvg(grades, numOfGrades);
+        cout << firstname << " " << lastname << " has an average of " << average;
+
+        // Get and print letter grade of student
+        char letterGrade = findLetterGrade(average);
+        cout << " which gives the letter grade of " << letterGrade << endl << endl << endl;
+
+        cout << "Please input a y if you want to input more students"
+             << " any other character will stop the input" << endl;
+        cin >> moreInput;
+    }
+
+    return 0;
+}
+
+//***********************************************************************
+//
+// findGradeAvg
+// task: This function finds the average of the numbers stored in an array.
+// data in: an array of float numbers (grades)
+// data returned: the average of all numbers in the array
+//
+//***********************************************************************
+float findGradeAvg(GradeType array, int numGrades)
+{
+    float sum = 0;
+    for (int i = 0; i < numGrades; i++)
+    {
+        sum += array[i];  // Add each grade to the sum
+    }
+    return sum / numGrades;  // Return the average
+}
+
+//***********************************************************************
+// findLetterGrade
+// task: This function finds the letter grade for the number passed to it by the calling function.
+// data in: a floating-point number (the average grade)
+// data returned: the grade (based on a 10-point spread) based on the number passed to the function
+//
+//***********************************************************************
+char findLetterGrade(float numGrade)
+{
+    if (numGrade >= 90)
+        return 'A';
+    else if (numGrade >= 80)
+        return 'B';
+    else if (numGrade >= 70)
+        return 'C';
+    else if (numGrade >= 60)
+        return 'D';
+    else
+        return 'F';
+}
 
