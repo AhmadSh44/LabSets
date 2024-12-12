@@ -1,1 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototype for the writeProverb function
+void writeProverb(const string& word);
+
+int main()
+{
+    string endingWord;
+
+    cout << "Given the phrase:" << endl;
+    cout << "Now is the time for all good men to come to the aid of their " << endl;
+    cout << "Please input the word you would like to have finish the proverb" << endl;
+
+    cin >> endingWord;
+    cout << endl;
+
+    writeProverb(endingWord);
+    return 0;
+}
+
+// ******************************************************************************
+// writeProverb
+//
+// task: This function prints a proverb. The function takes a string
+// from the call and appends it to the proverb.
+// ******************************************************************************
+void writeProverb(const string& word)
+{
+    cout << "Now is the time for all good men to come to the aid of their " << word << "." << endl;
+}
 
