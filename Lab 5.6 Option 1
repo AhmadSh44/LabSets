@@ -1,1 +1,46 @@
+#include <iostream>
 
+using namespace std;
+
+int main() {
+    int choice, coffeeVotes = 0, teaVotes = 0, cokeVotes = 0, orangeJuiceVotes = 0, totalVotes = 0;
+
+    while (true) {
+        cout << "Please input the favorite beverage of person #" << totalVotes + 1 << ": Choose 1, 2, 3, or 4 from the above menu or -1 to exit the program: ";
+        cin >> choice;
+
+        if (choice == -1) {
+            break;
+        }
+
+        totalVotes++;
+
+        switch (choice) {
+            case 1:
+                coffeeVotes++;
+                break;
+            case 2:
+                teaVotes++;
+                break;
+            case 3:
+                cokeVotes++;
+                break;
+            case 4:
+                orangeJuiceVotes++;
+                break;
+            default:
+                cout << "Invalid choice. Please enter 1, 2, 3, 4, or -1.\n";
+                totalVotes--; // Adjust total votes for invalid input
+                break;
+        }
+    }
+
+    cout << "The total number of people surveyed is " << totalVotes << ". The results are as follows:\n";
+    cout << "Beverage\tNumber of Votes\n";
+    cout << "Coffee\t" << coffeeVotes << endl;
+    cout << "Tea\t" << teaVotes << endl;
+    cout << "Coke\t" << cokeVotes << endl;
+    cout << "Orange Juice\t" << orangeJuiceVotes << endl;
+
+    return 0;
+}
