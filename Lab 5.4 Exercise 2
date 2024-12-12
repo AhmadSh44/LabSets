@@ -1,1 +1,52 @@
+// This program finds the average time spent on programming and biology by a student
+// and identifies which subject they spent more time on, on average.
+// PLACE YOUR NAME HERE
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int numStudents, numDays;
+    float programmingHours, biologyHours, totalProgramming, totalBiology, avgProgramming, avgBiology;
+    int student, day;
+
+    cout << "This program will find the average number of hours a day that a student spent on programming and biology.\n\n";
+
+    cout << "How many students are there?" << endl;
+    cin >> numStudents;
+
+    cout << "How many days do you want to consider?" << endl;
+    cin >> numDays;
+
+    for (student = 1; student <= numStudents; student++)
+    {
+        totalProgramming = 0;
+        totalBiology = 0;
+
+        for (day = 1; day <= numDays; day++)
+        {
+            cout << "Please enter the number of hours student " << student
+                 << " spent programming on day " << day << "." << endl;
+            cin >> programmingHours;
+            totalProgramming += programmingHours;
+
+            cout << "Please enter the number of hours student " << student
+                 << " spent studying biology on day " << day << "." << endl;
+            cin >> biologyHours;
+            totalBiology += biologyHours;
+        }
+
+        avgProgramming = totalProgramming / numDays;
+        avgBiology = totalBiology / numDays;
+
+        cout << endl;
+        cout << "The average number of hours per day spent on programming by student " 
+             << student << " is " << avgProgramming << endl;
+        cout << "The average number of hours per day spent on biology by student " 
+             << student << " is " << avgBiology << endl;
+
+        if (avgProgramming > avgBiology)
+            cout << "Student " << student << " spent more time on programming on average.\n\n";
+        else if (avgBio
 
