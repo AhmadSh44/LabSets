@@ -1,1 +1,80 @@
+#include <iostream>
+using namespace std;
+
+class SavingsAccount {
+private:
+    int dollars;
+    int cents;
+
+    // Normalize the cents so that it is always less than 100
+    void normalize() {
+        if (cents >= 100) {
+            dollars += cents / 100;
+            cents = cents % 100;
+        }
+    }
+
+public:
+    // 1. Open account with an initial deposit
+    SavingsAccount(int initialDollars, int initialCents) {
+        dollars = initialDollars;
+        cents = initialCents;
+        normalize();
+    }
+
+    // 2. Make a deposit
+    void deposit(int depositDollars, int depositCents) {
+        dollars += depositDollars;
+        cents += depositCents;
+        normalize();
+    }
+
+    // 3. Make a withdrawal
+    void withdraw(int withdrawDollars, int withdrawCents) {
+        dollars -= withdrawDollars;
+        cents -= withdrawCents;
+        if (cents < 0) {
+            dollars -= 1;
+            cents += 100;
+        }
+        normalize();
+    }
+
+    // 4. Show current balance
+    void showBalance() const {
+        cout << "Balance: $" << dollars << "." << (cents < 10 ? "0" : "") << cents << endl;
+    }
+};
+
+int main() {
+    int initialDollars, initialCents;
+    int depositDollars, depositCents;
+    int withdrawDollars, withdrawCents;
+
+    // User input for initial deposit
+    cout << "Enter initial deposit (dollars and cents): ";
+    cin >> initialDollars >> initialCents;
+
+    // Create an object called bank1 with the user's initial deposit
+    SavingsAccount bank1(initialDollars, initialCents);
+
+    // User input for deposit
+    cout << "Enter deposit amount (dollars and cents): ";
+    cin >> depositDollars >> depositCents;
+
+    // Deposit the amount
+    bank1.deposit(depositDollars, depositCents);
+
+    // User input for withdrawal
+    cout << "Enter withdrawal amount (dollars and cents): ";
+    cin >> withdrawDollars >> withdrawCents;
+
+    // Withdraw the amount
+    bank1.withdraw(withdrawDollars, withdrawCents);
+
+    // Show the final balance
+    bank1.showBalance();
+
+    return 0;
+}
 
