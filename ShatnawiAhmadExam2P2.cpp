@@ -1,49 +1,47 @@
+// Ahmad Shatnawi
+
 #include <iostream>
 #include <iomanip>
+#include <string>
+
 using namespace std;
+    string name;
+    double sales, extraBonus = 0.0, bonusPercentage = 0.0, bonusSubtotal = 0.0, totalBonus = 0.0;
 
-int main() {
+    cout << "Enter employee name: ";
+    getline(cin, name);
 
-    string realtorName;
-    double salesTotal;
-    double extraBonus = 0.0;
-    double bonusPercentage = 0.0;
-    double bonusAmount = 0.0;
-    double totalBonus = 0.0;
-
-    cout << "Enter the realtor's name: ";
-    getline(cin, realtorName);
-    cout << "Enter the total sales for the period: $";
-    cin >> salesTotal;
-
-    if (salesTotal <= 300000) {
+    cout << "What was the sales total for the previous period? ";
+    cin >> sales;
+    if (sales <= 300000) {
         extraBonus = 0;
-        bonusPercentage = 0.03;
-    } else if (salesTotal <= 400000) {
+        bonusPercentage = 0.03; 
+    } else if (sales <= 400000) {
         extraBonus = 500;
-        bonusPercentage = 0.0325;
-    } else if (salesTotal <= 500000) {
+        bonusPercentage = 0.0325; 
+    } else if (sales <= 500000) {
         extraBonus = 1000;
-        bonusPercentage = 0.033;
-    } else if (salesTotal <= 600000) {
+        bonusPercentage = 0.033; 
+    } else if (sales <= 600000) {
         extraBonus = 2000;
-        bonusPercentage = 0.034;
+        bonusPercentage = 0.034; 
     } else {
         extraBonus = 3000;
-        bonusPercentage = 0.035;
+        bonusPercentage = 0.035; 
     }
-    
-    bonusAmount = salesTotal * bonusPercentage;
 
-    totalBonus = bonusAmount + extraBonus;
+    double baseSales = sales + extraBonus;
+    bonusSubtotal = baseSales * bonusPercentage;
+    totalBonus = bonusSubtotal + extraBonus;
 
-    cout << fixed << setprecision(2);
-    cout << "\nSalesperson: " << realtorName << endl;
-    cout << "Sales Total: $" << salesTotal << endl;
+ 
+    cout << fixed << setprecision(2); 
+    cout << "\nSales and bonus for previous period – " << name << endl;
+    cout << "Sales: " << sales << endl;
     cout << "Extra Bonus: $" << extraBonus << endl;
-    cout << "Bonus Percentage: " << (bonusPercentage * 100) << "%" << endl;
-    cout << "Bonus Amount: $" << bonusAmount << endl;
-    cout << "Total Bonus: $" << totalBonus << endl;
+    cout << "Bonus percentage: " << bonusPercentage * 100 << "%" << endl;
+    cout << "Bonus subtotal amount: $" << bonusSubtotal << endl;
+    cout << "Total bonus: $" << totalBonus << endl;
 
     return 0;
 }
