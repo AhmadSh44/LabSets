@@ -1,1 +1,89 @@
+#include <iostream>
+using namespace std;
+
+class Circles
+{
+public:
+    void setCenter(int x, int y);
+    double findArea();
+    double findCircumference();
+    void printCircleStats();  // This outputs the radius and center of the circle.
+    Circles(float r, int x = 0, int y = 0);  // Constructor with default center values
+    Circles();  // Default constructor
+    ~Circles();  // Destructor
+private:
+    float radius;
+    int center_x;
+    int center_y;
+};
+
+const double PI = 3.14;
+
+int main()
+{
+    Circles sphere(8, 9, 10);  // Define with radius 8 and center (9, 10)
+    sphere.printCircleStats();
+    cout << "The area of the circle is " << sphere.findArea() << endl;
+    cout << "The circumference of the circle is " << sphere.findCircumference() << endl;
+
+    Circles sphere1(2);  // Only radius provided, center default (0, 0)
+    sphere1.printCircleStats();
+    cout << "The area of the circle is " << sphere1.findArea() << endl;
+    cout << "The circumference of the circle is " << sphere1.findCircumference() << endl;
+
+    Circles sphere2;  // Default constructor
+    sphere2.printCircleStats();
+    cout << "The area of the circle is " << sphere2.findArea() << endl;
+    cout << "The circumference of the circle is " << sphere2.findCircumference() << endl;
+
+    Circles sphere3(1, 15, 16);  // Define with center (15, 16) and default radius
+    sphere3.printCircleStats();
+    cout << "The area of the circle is " << sphere3.findArea() << endl;
+    cout << "The circumference of the circle is " << sphere3.findCircumference() << endl;
+
+    return 0;
+}
+
+// Implementation section
+
+Circles::Circles()
+{
+    radius = 1;
+    center_x = 0;
+    center_y = 0;
+}
+
+Circles::Circles(float r, int x, int y)
+{
+    radius = r;
+    center_x = x;
+    center_y = y;
+}
+
+double Circles::findArea()
+{
+    return PI * radius * radius;
+}
+
+double Circles::findCircumference()
+{
+    return 2 * PI * radius;
+}
+
+void Circles::printCircleStats()
+{
+    cout << "The radius of the circle is " << radius << endl;
+    cout << "The center of the circle is (" << center_x << ", " << center_y << ")" << endl;
+}
+
+void Circles::setCenter(int x, int y)
+{
+    center_x = x;
+    center_y = y;
+}
+
+Circles::~Circles()
+{
+    cout << "This concludes the Circles class." << endl;
+}
 
