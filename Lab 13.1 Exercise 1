@@ -1,1 +1,59 @@
+#include <iostream>
+using namespace std;
+
+// Square class declaration
+class Square {
+private:
+    float side;  // Member variable to store the side length of the square
+
+public:
+    // Default constructor (sets side to 1)
+    Square() : side(1) {}
+
+    // Parameterized constructor (sets side to a specified value)
+    Square(float length) : side(length) {}
+
+    // Destructor (doesn't need to do anything in this case)
+    ~Square() {}
+
+    // Method to set the side length
+    void setSide(float length) {
+        side = length;
+    }
+
+    // Method to calculate and return the area of the square
+    float findArea() {
+        return side * side;
+    }
+
+    // Method to calculate and return the perimeter of the square
+    float findPerimeter() {
+        return 4 * side;
+    }
+};
+
+int main() {
+    Square box;  // Create an object of the Square class
+    float size;  // Variable to store the side length input by the user
+
+    // Ask the user for the side length
+    cout << "Please input the length of the side of the square: ";
+    cin >> size;
+
+    // Set the side of the square using the setSide method
+    box.setSide(size);
+
+    // Calculate and print the area and perimeter
+    cout << "The area of the square is " << box.findArea() << endl;
+    cout << "The perimeter of the square is " << box.findPerimeter() << endl;
+
+    // Create a second square object with a side of 9 using the parameterized constructor
+    Square box1(9);
+    
+    // Calculate and print the area and perimeter of the second square
+    cout << "The area of box1 is " << box1.findArea() << endl;
+    cout << "The perimeter of box1 is " << box1.findPerimeter() << endl;
+
+    return 0;
+}
 
