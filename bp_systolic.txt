@@ -1,0 +1,38 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <limits>
+
+float High_BP_Systolic() {
+    std::ifstream inputFile("bp_systolic.txt");  
+    if (!inputFile) {
+        std::cerr << "Error opening the file!" << std::endl;
+        return -1.0f;  
+    }
+    std::vector<float> BP_Systolic_Values;  
+    float reading;
+    while (inputFile >> reading) {
+        BP_Systolic_Values.push_back(reading); 
+    }
+    inputFile.close();
+    if (BP_Systolic_Values.empty()) {
+        std::cerr << "No data available!" << std::endl;
+        return -1.0f;  
+    }
+    float maxReading = std::numeric_limits<float>::lowest();  // Initialize with the lowest possible value
+    for (float value : BP_Systolic_Values) {
+        if (value > maxReading) {
+            maxReading = value;
+        }
+    }
+
+    return maxReading;
+}
+
+int main() {
+    float highestBP = High_BP_Systolic();
+    if (highestBP != -1.0f) {
+        std::cout << "The highest systolic blood pressure reading is: " << highestBP << " kPa" << std::endl;
+    }
+    return 0;
+}
