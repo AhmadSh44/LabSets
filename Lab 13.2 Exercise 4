@@ -1,3 +1,5 @@
+// In Exercise 1, the main function now directly passes both the radius and center to the constructor, simplifying object creation. As a result, the setCenter function becomes unnecessary, since the center is set during initialization. The existing functions like findArea, findCircumference, and printCircleStats do not require changes, as they continue to rely on the same attributes now initialized through the constructor.
+
 #include <iostream>
 using namespace std;
 
