@@ -1,51 +1,31 @@
-// This program will read in the quantity of a particular item and its price.
-// It will then print out the total price.
-// The input will come from a data file and the output will go to
-// an output file.
+// This program prints the proverb
+// "Now is the time for all good men to come to the aid of their party"
+// in a function (procedure) called writeProverb that is called by the main function
 // PLACE YOUR NAME HERE
 
-#include <fstream>
-#include <iomanip>
+#include <iostream>
 using namespace std;
+
+// Prototype for the writeProverb function
+void writeProverb();
 
 int main()
 {
-    ifstream dataIn;    // defines an input stream for a data file
-    ofstream dataOut;   // defines an output stream for an output file
-    int quantity;       // contains the amount of items purchased
-    float itemPrice;    // contains the price of each item
-    float totalBill;    // contains the total bill, i.e., the price of all items
-
-    // Open the input and output files
-    dataIn.open("transaction.dat");  // This opens the input file
-    dataOut.open("bill.out");        // This opens the output file
-
-    if (!dataIn) // Check if input file opened successfully
-    {
-        dataOut << "Error: Unable to open the input file." << endl;
-        return 1; // Exit with an error code
-    }
-
-    if (!dataOut) // Check if output file opened successfully
-    {
-        cerr << "Error: Unable to open the output file." << endl;
-        return 1; // Exit with an error code
-    }
-
-    dataOut << setprecision(2) << fixed << showpoint; // formatted output for decimals
-
-    // Read quantity and price from the input file
-    dataIn >> quantity >> itemPrice;
-
-    // Calculate the total bill
-    totalBill = quantity * itemPrice;
-
-    // Write the total bill to the output file
-    dataOut << "The total bill is $" << totalBill << endl;
-
-    // Close the files
-    dataIn.close();
-    dataOut.close();
-
+    // Call the writeProverb function
+    writeProverb();
     return 0;
+}
+
+// *********************************************************************
+// writeProverb
+//
+// task: This function prints a proverb
+// data in: none
+// data out: no actual parameter altered
+//
+// *********************************************************************
+void writeProverb() 
+{
+    // Print the proverb to the console
+    cout << "Now is the time for all good men to come to the aid of their party" << endl;
 }
