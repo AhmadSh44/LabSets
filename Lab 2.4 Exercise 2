@@ -1,1 +1,27 @@
+#include <iostream>
+#include <string>
 
+using namespace std;
+
+int main() {
+    // Definition of constants
+    const string FAVORITE_SODA = "Dr. Pepper";
+    const char BEST_RATING = 'A';
+
+    // Additional variables
+    char rating = 'B';
+    string favoriteSnack = "crackers";
+    int numberOfPeople = 250;
+    int topChoiceTotal = 148;
+
+    // Output the values
+    cout << "The preferred soda is " << FAVORITE_SODA << endl;
+    cout << "The preferred snack is " << favoriteSnack << endl;
+    cout << "Out of " << numberOfPeople << " people, " << topChoiceTotal
+         << " chose these items" << endl;
+    cout << "Each of these products were given a rating of " << BEST_RATING
+         << " from our expert tasters" << endl;
+    cout << "The other products were rated no higher than a " << rating << endl;
+
+    return 0;
+}
