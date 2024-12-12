@@ -1,1 +1,19 @@
+#include <iostream>
 
+using namespace std;
+
+int main() {
+    // Exercise 1: Define constants for length and width
+    const int LENGTH = 8;
+    const int WIDTH = 3;
+
+    // Calculate area and perimeter
+    int area = LENGTH * WIDTH;
+    int perimeter = 2 * (LENGTH + WIDTH);
+
+    // Exercise 2: Print the results
+    cout << "The area of the rectangle is " << area << endl;
+    cout << "The perimeter of the rectangle is " << perimeter << endl;
+
+    return 0;
+}
