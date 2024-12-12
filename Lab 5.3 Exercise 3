@@ -1,1 +1,42 @@
+// This program computes the mean of the consecutive positive integers n, n+1, ..., m
+// PLACE YOUR NAME HERE
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, m;      // Start and end values of the range
+    int total = 0; // Holds the sum of the integers
+    int count = 0; // Number of integers in the range
+    float mean;    // Average of the integers
+
+    // Input range values
+    cout << "Enter the starting positive integer (n): ";
+    cin >> n;
+    cout << "Enter the ending positive integer (m): ";
+    cin >> m;
+
+    // Validate input
+    if (n > 0 && m >= n)
+    {
+        for (int i = n; i <= m; i++) // Loop from n to m
+        {
+            total += i; // Add each integer to total
+            count++;    // Increment the count of numbers
+        }
+
+        mean = static_cast<float>(total) / count; // Compute the mean (typecast to float)
+
+        // Output the result
+        cout << "The mean average of the integers from " << n << " to " << m
+             << " is " << mean << endl;
+    }
+    else
+    {
+        cout << "Invalid input - ensure n is positive and m is greater than or equal to n." << endl;
+    }
+
+    return 0;
+}
 
