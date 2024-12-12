@@ -1,1 +1,31 @@
+#include <iostream>
 
+using namespace std;
+
+int main() {
+    // Exercise 1: Calculate circumference and area of a circle
+    const double PI = 3.14159;
+    const double RADIUS = 3.4;
+
+    double circumference = 2 * PI * RADIUS;
+    double area = PI * RADIUS * RADIUS;
+
+    cout << "The circumference of the circle is " << circumference << endl;
+    cout << "The area of the circle is " << area << endl;
+
+    // Exercise 2: Change circumference data type to int
+    int int_circumference = static_cast<int>(circumference);
+    cout << "The circumference of the circle (integer) is " << int_circumference << endl;
+
+    // Exercise 3: Modify radius and rerun
+    const double NEW_RADIUS = 10.0;
+
+    circumference = 2 * PI * NEW_RADIUS;
+    area = PI * NEW_RADIUS * NEW_RADIUS;
+
+    cout << "\nWith a new radius of " << NEW_RADIUS << ":" << endl;
+    cout << "The circumference of the circle is " << circumference << endl;
+    cout << "The area of the circle is " << area << endl;
+
+    return 0;
+}
