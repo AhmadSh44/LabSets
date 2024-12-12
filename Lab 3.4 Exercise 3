@@ -1,1 +1,17 @@
+#include <iostream>
+#include <iomanip>  // For controlling the number of decimal places
+using namespace std;
 
+const int AT_BAT = 421;
+const int HITS = 123;
+
+int main()
+{
+    float batAvg;
+    batAvg = static_cast<float>(HITS) / AT_BAT;  // Typecast HITS to float for accurate division
+    
+    // Set the output to show 6 decimal places
+    cout << fixed << setprecision(6);
+    cout << "The batting average is " << batAvg << endl;  // Output the result
+    return 0;
+}
