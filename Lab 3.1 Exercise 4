@@ -1,1 +1,30 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() {
+    string itemName; // to store the name of the item
+    int quantity; // number of items bought
+    float itemPrice; // price of each item
+    float totalBill; // total bill
+
+    cout << "Please input the name of the item" << endl;
+    getline(cin, itemName); // input the item name (allows spaces)
+
+    cout << "Please input the number of items bought" << endl;
+    cin >> quantity; // input quantity
+
+    cout << "Please input the price of each item" << endl;
+    cin >> itemPrice; // input item price
+
+    totalBill = quantity * itemPrice; // calculate the total bill
+
+    // Output the item name and total bill
+    cout << "The item that you bought is " << itemName << endl;
+    cout << setprecision(2) << fixed << showpoint; // set output format
+    cout << "The total bill is $" << totalBill << endl;
+
+    return 0;
+}
 
