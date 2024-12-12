@@ -1,1 +1,53 @@
+// This program performs a linear search on an integer array with continuous input
+#include <iostream>
+using namespace std;
+
+int searchList(int[], int, int); // function prototype
+const int SIZE = 8;
+
+int main()
+{
+    int nums[SIZE] = {3, 6, -19, 5, 5, 0, -2, 99};
+    int found;
+    int numToSearch;
+    
+    do {
+        cout << "Enter an integer to search for (or -999 to quit):" << endl;
+        cin >> numToSearch;
+        
+        if (numToSearch != -999) {
+            found = searchList(nums, SIZE, numToSearch);
+            
+            if (found == -1)
+                cout << "The integer " << numToSearch
+                     << " was not found in the list" << endl;
+            else
+                cout << "The integer " << numToSearch << " is in the "
+                     << found + 1 << " position of the list" << endl;
+        }
+    } while (numToSearch != -999); // Continue until sentinel value is entered
+    
+    cout << "Program terminated." << endl;
+    return 0;
+}
+
+//*******************************************************************
+// searchList
+//
+// task: This searches an array for a particular integer
+// data in: List of values in an array, the number of
+// elements in the array, and the integer searched for
+// data returned: Position in the array of the value or -1 if value
+// not found
+//
+//*******************************************************************
+int searchList(int List[], int numElems, int value)
+{
+    for (int count = 0; count < numElems; count++)
+    {
+        if (List[count] == value)
+            return count; // if the value is found, return the index
+    }
+    return -1; // return -1 if the value is not found
+}
 
